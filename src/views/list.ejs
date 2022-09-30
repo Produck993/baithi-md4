@@ -49,7 +49,7 @@
             <td><%= users[i].age %></td>
             <td><%= users[i].salary %></td>
             <td><%= users[i].branch %></td>
-            <td><a href="/update/<%= users[i].id %>" class="btn btn-primary btn-fill">update</a>
+            <td><a href="/update/<%= users[i].id %>" class="btn btn-primary btn-fill">Update</a>
               <form action="/delete/<%= users[i].id %>" method="post" enctype="multipart/form-data">
                 <button type="submit" class="btn btn-danger btn-fill">Delete</button>
                </form>

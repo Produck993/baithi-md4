@@ -12,7 +12,7 @@ class UserController{
         }
     }
 
-    getCreateUserForm = async (req: Request, res: Response) => {
+    async getCreateUserForm   (req: Request, res: Response)  {
         res.render('create');
     }
 
@@ -28,7 +28,7 @@ class UserController{
             }
             let user = await User.findOne({employeeCode : req.body.employeeCode})
             if (!user) {
-                console.log(userData)
+                // console.log(userData)
                 User.create(userData);
                res.redirect('/')
             } else {
@@ -41,7 +41,7 @@ class UserController{
     }
 
 
-    deleteUser = async (req: Request, res: Response) => {
+    async deleteUser  (req: Request, res: Response)  {
         let id = req.params.id
         let product = await User.findByIdAndDelete({ _id: id });
         if (!product) {
@@ -53,7 +53,7 @@ class UserController{
     }
 
 
-    getUpdate = async (req: Request, res: Response) => {
+    async getUpdate  (req: Request, res: Response) {
         try {
             const user = await User.findOne({ _id: req.params.id });
             if (user) {
@@ -65,8 +65,8 @@ class UserController{
             res.render('error')
         }
     }
-    postupdateUser =  async(req: Request, res: Response)=>{
-        console.log(req.body)
+    async postupdateUser   (req: Request, res: Response){
+        // console.log(req.body)
         let id = req.params.id;
         let users = await User.findById(id);
         if(!users) {
@@ -94,7 +94,7 @@ class UserController{
                 branch :  {$regex: `${keywordFind}`, $options: 'i'},        
             });
             // res.send(products)
-            console.log(user);
+            // console.log(user);
             
             res.render('list', {users : user})
         } catch (error) {
